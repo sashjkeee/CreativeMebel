@@ -1,0 +1,295 @@
+/*
+
+	Проект: Mr. Doors | Шкафы-купе и корпусная мебель на заказ по индивидуальным проектам
+	Создатель: Маркетинговое агенство "Mokselle" - http://mokselle.ru/
+	Технический специалист: Морев Максим (SeaInside (ex. MopuC)) - https://fl.ru/users/MopuC/
+	Дата: 25.05.2014
+	Версия: 1.0
+	
+*/
+
+
+/*---------------- Fonts ----------------*/
+@font-face {
+    font-family: 'Square';
+    src: url('../fonts/pfsquaresanspro-regular.eot');
+    src: url('../fonts/pfsquaresanspro-regular.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/pfsquaresanspro-regular.woff') format('woff'),
+         url('../fonts/pfsquaresanspro-regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Square';
+    src: url('../fonts/pfsquaresanspro-italic.eot');
+    src: url('../fonts/pfsquaresanspro-italic.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/pfsquaresanspro-italic.woff') format('woff'),
+         url('../fonts/pfsquaresanspro-italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Square';
+    src: url('../fonts/pfsquaresanspro-medium.eot');
+    src: url('../fonts/pfsquaresanspro-medium.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/pfsquaresanspro-medium.woff') format('woff'),
+         url('../fonts/pfsquaresanspro-medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Square';
+    src: url('../fonts/pfsquaresanspro-bold.eot');
+    src: url('../fonts/pfsquaresanspro-bold.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/pfsquaresanspro-bold.woff') format('woff'),
+         url('../fonts/pfsquaresanspro-bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Din';
+    src: url('../fonts/pfdintextcondpro-bold_0.eot');
+    src: url('../fonts/pfdintextcondpro-bold_0.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/pfdintextcondpro-bold_0.woff') format('woff'),
+         url('../fonts/pfdintextcondpro-bold_0.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/*---------------- Reset ----------------*/
+
+html,body,div,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,input,button,textarea,p,blockquote,th,td{margin:0;padding:0}
+table{border-collapse:collapse;border-spacing:0}
+button,img{border:0;vertical-align:middle}
+ul,li{list-style:none}
+caption,th{text-align:left}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}
+input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit}
+input,button,textarea,select{font-size:100%;}
+body,td,div,input,textarea,select {font-style:normal;font-weight:normal;}
+*:focus{outline:none}
+header,footer,nav,section,article,aside{display:block}
+iframe{border:0}
+
+input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{color:#8f867a;}
+input::-moz-placeholder,textarea::-moz-placeholder{color:#8f867a;}
+input::-ms-input-placeholder,textarea::-ms-input-placeholder {color:#8f867a;}
+input.placeholder,textarea.placeholder{color:#8f867a;}
+
+label{color:#fff;font:18px/25px Gotham;text-align:left;display:block;padding:2px 0 1px;cursor:pointer}
+
+input[type=text],input[type=password],input[type=email],textarea{width:238px;margin:4px 0;border:1px solid #c8c6c3;position:relative;color:#726b61;font:18px Square;padding:7px 10px 7px 35px;background:#fff url(../images/sprite.png) -999px 0 no-repeat;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;-webkit-box-shadow:inset 0 1px 2px #d6d6d6;-moz-box-shadow:inset 0 1px 2px #d6d6d6;box-shadow:inset 0 1px 2px #d6d6d6;behavior:url(/PIE/PIE.php);}
+	input[type=text].client-name{background-position:-490px -214px;}
+	input[type=text].client-mail{background-position:-489px -259px;}
+	input[type=text].client-phone{background-position:-491px -304px;}
+
+input[type=submit],button{cursor:pointer;border:0;margin:10px 0;color:#fff;font:500 18px/58px Square;text-align:center;text-transform:uppercase;text-shadow:0 2px 1px rgba(0,0,0,.6);background:url(../images/sprite.png) no-repeat;width:286px;height:58px;}
+input[type=submit]:hover,button:hover{background-position:0 -60px}
+input[type=submit]:active,button:active{background-position:0 -120px}
+
+	input[type=submit].long,button.long{margin:40px 0 0;width:466px;background-position:0 -180px;font-size:16px}
+	input[type=submit].long:hover,button.long:hover{background-position:0 -240px}
+	input[type=submit].long:active,button.long:active{background-position:0 -300px}
+
+	input[type=submit].small,button.small{margin:0;width:186px;height:49px;background-position:-314px -360px;font-size:16px;line-height:49px;}
+	input[type=submit].small:hover,button.small:hover{background-position:-314px -412px}
+	input[type=submit].small:active,button.small:active{background-position:-314px -463px}
+
+	input[type=submit].small-long,button.small-long{margin:0;width:312px;height:49px;background-position:0 -360px;font-size:16px;line-height:49px;}
+	input[type=submit].small-long:hover,button.small-long:hover{background-position:0 -412px}
+	input[type=submit].small-long:active,button.small-long:active{background-position:0 -463px}
+
+	input[type=submit].order-big,button.order-big{margin:30px 0 10px;font:500 16px/18px Square;width:226px;height:59px;background-position:-288px 0}
+	input[type=submit].order-big:hover,button.order-big:hover{background-position:-288px -60px}
+	input[type=submit].order-big:active,button.order-big:active{background-position:-288px -120px}
+
+
+/*---------------- Styles ----------------*/
+
+html{background:#f4f0e9;color:#49403a;font:16px/21px Square}
+body{}
+html,body{min-width:1050px}
+#global-wrapper{overflow:hidden;position:relative}
+
+h1{padding:50px 0;text-align:center;text-transform:uppercase;font:36px/30px Square;}
+	h1 span{text-transform:none;font:21px/30px Square;}
+h2{font:700 30px/30px Square;text-transform:uppercase;padding:0 0 25px}
+h3{text-transform:uppercase;font:500 21px/21px Square;color:#4f453d;padding:0 0 15px}
+h4{font:500 18px/24px Square;color:#49403a;padding:20px 0 20px}
+h5{}
+h6{}
+
+p{padding:10px 0}
+
+a{text-decoration:none;}
+a:hover{color:inherit}
+
+.clear {clear:both}
+.centered{width:940px;margin:0 auto;position:relative}
+.last-line-hack{width:100%;display:inline-block;height:0;visibility:hidden}
+
+.brown-line{width:51px;height:9px;margin:10px 0;background:#bf7f4b}
+
+.color-brown{color:#bf7f4b}
+
+.icon{display:inline-block;vertical-align:top;position:relative;background:url(../images/sprite.png) no-repeat}
+	.phone-icon{width:15px;height:15px;background-position:-468px -180px;margin:3px 5px 0 0}
+	.adress-icon{display:block;float:left;margin-right:10px;width:15px;height:15px;background-position:-485px -191px;}
+
+.block-title{display:block;width:292px;height:52px;background:url(../images/block-titles.png) no-repeat;margin:0 auto}	
+	.block-title.catalog-title{background-position:0 0}	
+	.block-title.benefit-title{background-position:0 -54px}	
+	.block-title.award-title{background-position:0 -108px}	
+	.block-title.work-title{background-position:0 -162px}	
+	.block-title.project-title{background-position:0 -216px}	
+	.block-title.reviews-title{background-position:0 -270px}	
+	.block-title.maps-title{background-position:0 -326px}	
+	
+	
+header{height:1380px;background:url(../images/header-bg.jpg) center top no-repeat;}
+	#logo{display:block;width:333px;height:161px;background:url(../images/logo.png) no-repeat;position:absolute;top:0px;left:300px}
+	.top-phone{float:right;padding:60px 60px 0 0;font:22px/22px Square;text-align:right}
+		.top-phone b{font-weight:500}
+		.top-phone a{font:500 17px/30px Square;color:#1ba9eb;text-decoration:underline;}
+			.top-phone a:hover{color:#1ba9eb;text-decoration:none;}
+	header h1{position:absolute;width:100%;text-align:center;padding:0;margin:0;top:210px;text-transform:uppercase;font:700 36px/24px Square;letter-spacing:1px}
+		header h1 span{display:inline-block;padding:10px 15px 5px;background:#ebe6dd;margin:2px 0;text-transform:uppercase;font:700 36px/24px Square;}
+		header h1 span.small{font:500 24px/24px Square}
+	.header-action{width:840px;background:url(../images/header-action.jpg) no-repeat;position:absolute;top:337px;left:50px;height:950px}
+		.header-action h1{width:100%;top:45px;font:500 18px/22px Square;}
+			.header-action h1 span{margin:0;padding:3px 15px 1px;font:500 18px/22px Square;}
+		
+		.header-action .form-block{position:absolute;top:527px;left:0;width:820px;}
+		.form-block{background:#f4f0e9;padding:10px;width:840px;margin:0 auto;position:relative}
+			.form-block .left{float:left;padding:42px 0 0 40px;font:16px/24px Square;width:360px}
+				.form-block .left b{font:500 18px/24px Square}
+				
+				.counter-wrapper{border:7px solid #eae4d9;padding:15px 20px;margin:30px 0 0 10px;text-align:center;font:16px/20px Square;overflow:hidden;width:280px}
+					.counter{margin:10px 0 0;position:relative;right:-10px}
+						.counter-item{text-transform:lowercase;float:left;width:84px;height:84px;background:url(../images/counter-item.png) no-repeat;margin:0 0 0 -17px;font:14px/20px Square}
+							.counter-item b{display:block;font:44px/64px Din !important;color:#585858}
+			
+			.form-block .right{width:400px;float:right}
+			.page-form{border:7px solid #bf7f4b;text-align:center;height:390px}
+				.page-form .form-title{padding:65px 0 15px;text-transform:uppercase;letter-spacing:1px;font:700 24px/21px Square}
+					.page-form .form-title span{font:18px/21px Square;text-transform:none}
+					.page-form .form-title span b{font-weight:500}
+			
+			.form-block .discount{position:absolute;top:-225px;left:195px;width:451px;height:360px;background:url(../images/discount-20.png) no-repeat;}
+	
+#catalog{background:url(../images/catalog-bg.jpg) center 120px no-repeat;padding:50px 0;text-align:center}
+	.catalog-item{display:inline-block;width:280px;vertical-align:top;margin:20px 25px 40px}
+		.catalog-item h2{color:#9d8461;font:500 18px/24px Square;text-transform:uppercase;padding:0 0 20px;margin:0;}
+		.catalog-item-inner{background:#fff;padding:0 0 30px}
+			.catalog-description{height:100px;border-bottom:1px solid #dfd8cf;position:relative;}
+				.catalog-description-arrow{width:16px;height:9px;background:url(../images/sprite.png) -485px -180px no-repeat;position:absolute;top:-8px;left:50%;margin-left:-8px}
+			.catalog-description-inner{height:100px;width:280px;display:table-cell;vertical-align:middle;text-align:center;font:16px/21px Square;color:#8f867a}
+			.catalog-order{font:italic 15px/21px Square}
+			
+#benefit{background:url(../images/benefit-bg.jpg);padding:50px 0 80px;overflow:hidden}
+	.benefit-item{width:188px;float:left;text-align:center;}
+		.benefit-icon{width:146px;height:146px;background:url(../images/benefit.png) no-repeat;margin:0 auto 15px}
+			.benefit-icon.i-2{background-position:-148px 0}
+			.benefit-icon.i-3{background-position:-296px 0}
+			.benefit-icon.i-4{background-position:-444px 0}
+			.benefit-icon.i-5{background-position:-592px 0}
+
+.promo-form{padding:260px 0 40px}			
+#promo1{background:url(../images/form-bg-1.jpg) center top no-repeat}
+#promo2{background:url(../images/form-bg-2.jpg) center top no-repeat}
+#promo3{background:url(../images/form-bg-3.jpg) center top no-repeat}
+
+#team{padding:50px 0;text-align:center;font-size:0;line-height:0}
+	.team-item{display:inline-block;position:relative;width:150px;height:150px;margin:9px}
+		.team-name{color:#fff;text-transform:uppercase;position:absolute;bottom:0;left:0;width:100%;text-align:center;font:500 16px/16px Square;padding:20px 0}
+
+#award{background:url(../images/benefit-bg.jpg);padding:50px 0 70px;overflow:hidden;text-align:center}
+	.award-images{margin:-90px 0 0;position:relative;}
+		.award-image{margin:0 26px;vertical-align:bottom}
+		
+#work{padding:50px 0 170px;overflow:hidden}
+	.work-item{width:188px;float:left;text-align:center;position:relative}
+		.work-icon{width:94px;height:94px;background:url(../images/work.png) no-repeat;margin:15px auto;}
+			.work-icon.i-2{background-position:-96px 0}
+			.work-icon.i-3{background-position:-192px 0}
+			.work-icon.i-4{background-position:-288px 0}
+			
+		.work-arrow{width:21px;height:16px;background:url(../images/work.png) -480px 0 no-repeat;position:absolute;top:50px;right:-12px}
+		.work-line{width:9px;height:19px;background:url(../images/work.png) -501px 0 no-repeat;position:absolute;bottom:-10px;left:50%;margin-left:-4px;}
+			.work-line.big{height:85px;background-position:-512px 0;position:absolute;bottom:-88px;}
+		.work-button{position:absolute;bottom:-51px;left:1px}
+			.i-2 .work-line{bottom:-20px}
+			.i-2 .work-button{bottom:-61px}
+			
+			.i-3 .work-button{bottom:-130px;left:-56px}
+		
+#project{padding:50px 0}
+#project .centered{width:820px;}
+	.project-item{padding:30px 0;overflow:hidden;}
+		.project-photos{width:260px;float:left}
+			.project-photos img{margin:0 0 15px}
+		.project-item.even .project-photos{float:right;text-align:right}
+		.project-text{overflow:hidden}
+			.project-text .project-title{font:500 30px/30px Square;color:#49403a;padding:20px 0 20px}
+		
+#reviews{padding:0 0 50px}
+#reviews .centered{width:820px;}	
+	.review-item{margin:0 0 30px;overflow:hidden;background:#fff}
+		.review-author{float:left;width:220px;border-right:1px solid #e7e3dd;margin-right:38px}
+			.review-name{padding:10px 0}
+			.review-name-inner{font:16px/21px Square;display:table-cell;text-align:center;vertical-align:middle;width:220px;}
+				.review-name-inner b{font:500 18px/21px Square}
+				.review-name-inner span{color:#8f867a}
+		.review-text{overflow:hidden;padding:0 0 20px}
+			.review-title{color:#676056;font:500 24px/24px Square;padding:30px 0 5px;letter-spacing:1px}
+	
+#maps{padding:50px 0 20px;overflow:hidden}
+	.map-item{width:235px;float:left}
+		.map-description{padding:0 0 20px 10px;height:85px}
+		.map-description-text{overflow:hidden;color:#49403a}
+	
+#questions{text-align:center;padding:0 0 50px}
+	#questions h1{padding-bottom:10px}
+	#questions a{font:500 18px/24px Square;color:#1ba9eb;text-decoration:underline}
+	#questions a:hover{color:#1ba9eb;text-decoration:none}
+	
+footer{background:#fff;padding:30px 0;overflow:hidden}
+footer .centered{width:820px}
+	.footer-phone{float:left;font:22px/22px Square;text-align:right}
+		.footer-phone b{font-weight:500}
+		.footer-phone a{font:500 17px/30px Square;color:#1ba9eb;text-decoration:underline;}
+			.footer-phone a:hover{color:#1ba9eb;text-decoration:none;}
+	.creator{float:right;font:14px/24px Square;color:#847e7a;padding:13px 0 0}
+	
+	.privacy{text-align:center;padding:13px 0 0}
+		.privacy a{font:14px/24px Square;color:#49403a;text-decoration:underline}
+		.privacy a:hover{color:#49403a;text-decoration:none}
+
+
+
+
+
+
+.si_user_info{display:none}
+.si-overlay{display:none;background:url(../images/si-overlay.png);position:absolute;top:0;left:0;z-index:103;width:100%;height:100%}
+
+.si-modal{display:none;background:#f4f0e9;border:7px solid #bf7f4b;padding:30px 0;position:fixed;top:50px;left:50%;z-index:104;text-align:center;margin-left:-215px;width:400px}		
+	.si-modal .form-title{padding:0 0 20px;color:#49403a;font:700 24px/32px Square;text-transform:uppercase;letter-spacing:1px}		
+		.si-modal .form-title span{font:18px/21px Square;letter-spacing:0;text-transform:none}		
+			.si-modal .form-title span b{font-weight:500}		
+	.si-close{display:block;width:19px;height:19px;background:url(../images/si-close.png);position:absolute;right:10px;top:10px;}		
+	
+	.privacy-modal{width:700px;padding:30px;text-align:left;margin-left:-360px;}
+		.privacy-modal h1{padding:10px 0}
+	
+.si-success-modal{display:none;background:#f4f0e9;border:7px solid #bf7f4b;padding:60px 0;position:fixed;top:50%;left:50%;z-index:105;text-align:center;margin-left:-355px;margin-top:-255px;width:700px}		
+	.si-success-modal h1{padding:0 0 10px;color:#49403a;font:700 24px/32px Square;text-transform:uppercase;letter-spacing:1px}
+	.si-success-modal h2{font:500 18px/21px Square;padding:0}
+	
+.relative{position:relative}
+	.si-tooltip{text-align:left;z-index:5;position:absolute;top:-7px;left:2px;width:100%;border:1px solid #ff0000;padding:5px;background:#fff;color:#000;font:14px Arial;display:block}<div class="si-tooltip">text-align:left;z-index:5;position:absolute;top:-7px;left:2px;width:100%;border:1px solid #ff0000;padding:5px;background:#fff;color:#000;font:14px Arial;display:block</div>
